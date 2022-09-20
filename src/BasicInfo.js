@@ -99,7 +99,7 @@ function BasicInfo() {
                                 <button className="cancel">
                                     Cancel
                                 </button>
-                                <button className="cancel">
+                                <button className="save">
                                     Save &#38; continue
                                 </button>
                             </div>
