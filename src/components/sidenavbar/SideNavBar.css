@@ -1,0 +1,29 @@
+.sidebarconatiner {
+  background-color: E1F9F4;
+  width: 317px;
+}
+
+.logooption {
+  margin-left: 130px;
+}
+.sidesubcontainer {
+  margin-left: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.navvalue {
+  margin-left: 20px;
+}
+
+.property {
+  color: #2289ff;
+}
+
+.sideoption {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+}
