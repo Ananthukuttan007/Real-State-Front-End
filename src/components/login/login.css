@@ -41,6 +41,14 @@ body {
     background-color: #E1F9F4;
 }
 
+.pg {
+    text-align: center;
+    margin-right: 7%;
+    margin-top: 30px;
+    color: #352D66;
+    font-size: 20px;
+}
+
 .pg span {
     text-align: center;
     margin-top: 30px;
@@ -61,6 +69,10 @@ body {
 .signup {
     color: #352D66;
 
+}
+
+.signup:hover {
+    color: rgb(213, 147, 147);
 }
 
 .login-container button:first-of-type:hover {

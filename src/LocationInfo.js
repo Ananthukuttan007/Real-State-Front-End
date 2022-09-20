@@ -2,8 +2,10 @@ import React from 'react'
 import './LocationInfo.css'
 import SideNavBar from './components/sidenavbar/SideNavBar'
 import Header from './components/headerpage/Header'
+import { useNavigate } from 'react-router-dom';
 
 function LocationInfo() {
+    const navigate = useNavigate()
     return (
         <>
             <div className="container">
@@ -70,7 +72,7 @@ function LocationInfo() {
                             </div>
 
                             <div className="buttonBox">
-                                <button className="Previous">
+                                <button className="Previous" onClick={() => navigate('/general-info')}>
                                     Previous
                                 </button>
                                 <button className="Add">

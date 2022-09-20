@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import './GeneralInfo.css'
 import SideNavBar from './components/sidenavbar/SideNavBar'
 import Header from './components/headerpage/Header'
+import { useNavigate } from 'react-router-dom';
 
 function GeneralInfo() {
+    const navigate = useNavigate()
     const [fileName, setFileName] = useState("Add Photo");
     return (
         <>
@@ -97,10 +99,10 @@ function GeneralInfo() {
                             </div>
 
                             <div className="buttonBox1">
-                                <button className="Previous">
+                                <button className="Previous" onClick={() => navigate('/property-detail')}>
                                     Previous
                                 </button>
-                                <button className=" save">
+                                <button className=" save" onClick={() => navigate('/location-info')}>
                                     Save &#38; continue
                                 </button>
                             </div>

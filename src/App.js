@@ -17,7 +17,7 @@ function App() {
         <Route path="/general-info" element={<GeneralInfo />} />
         <Route path="/listproperty" element={<PropertyView />} />
         <Route path="/location-info" element={<LocationInfo />} />
-        <Route path="/" element={<PropertyView />} />
+        <Route path="/home-page" element={<PropertyView />} />
       </Routes>
     </BrowserRouter>
   );

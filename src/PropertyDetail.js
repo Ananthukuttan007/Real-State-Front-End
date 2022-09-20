@@ -2,8 +2,11 @@ import React from 'react'
 import './PropertyDetail.css'
 import SideNavBar from './components/sidenavbar/SideNavBar'
 import Header from './components/headerpage/Header'
+import { useNavigate } from 'react-router-dom';
+
 
 function PropertyDetail() {
+    const navigate = useNavigate()
     return (
         <>
             <div className="container">
@@ -132,10 +135,10 @@ function PropertyDetail() {
                             </div>
 
                             <div className="buttonBox1">
-                                <button className="Previous">
+                                <button className="Previous" onClick={() => navigate('/basic-info')}>
                                     Previous
                                 </button>
-                                <button className=" save">
+                                <button className=" save" onClick={() => navigate('/general-info')}>
                                     Save &#38; continue
                                 </button>
                             </div>

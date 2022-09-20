@@ -98,7 +98,7 @@ function BasicInfo() {
                             </div>
 
                             <div className="buttonBox">
-                                <button className="cancel">
+                                <button className="cancel" onClick={() => navigate('/home-page')}>
                                     Cancel
                                 </button>
                                 <button className="save" onClick={() => navigate('/property-detail')}>
