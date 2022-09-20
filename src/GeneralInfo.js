@@ -1,18 +1,18 @@
 import React, { useState } from 'react'
 import './GeneralInfo.css'
+import SideNavBar from './components/sidenavbar/SideNavBar'
+import Header from './components/headerpage/Header'
 
 function GeneralInfo() {
     const [fileName, setFileName] = useState("Add Photo");
     return (
         <>
             <div className="container">
-                <aside>
-
-                </aside>
+                <div className="left">
+                    <SideNavBar />
+                </div>
                 <div className="right">
-                    <nav>
-
-                    </nav>
+                    <Header />
                     <h4 className="addANewProperty">
                         Add new Property
                     </h4>
