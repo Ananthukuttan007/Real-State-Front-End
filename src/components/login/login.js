@@ -1,6 +1,8 @@
 import "../login/login.css"
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
+import { useNavigate } from 'react-router-dom';
 const Login = () => {
+    const navigate = useNavigate()
     return (
         <>
             <div>
@@ -12,22 +14,24 @@ const Login = () => {
                         placeholder="&nbsp;&nbsp;User ID"
                         name="username"
 
-                     /> <br></br>
-                     <input
+                    /> <br></br>
+                    <input
                         type="password"
                         name="password"
                         placeholder="&nbsp;&nbsp;Password"
-                     /> <br></br>
-                     <button type="submit">
+                    /> <br></br>
+                    <button type="submit">
                         Sign In
-                     </button>  <br></br>
-                     <Link to="/sign-up">
-                     <p className="signup">
-                       Sign Up 
-                     </p>
-                     </Link>
+                    </button>  <br></br>
+                    <Link to="/sign-up">
+                        <p className="signup">
+                            Sign Up
+                        </p>
+                    </Link>
                 </div>
-                <p className="pg">Don't have an accout? <span className="name">Sign Up</span></p>
+                <div className="signupMessage">
+                    <p className="pg">Don't have an accout? <span className="signUpSpan" onClick={() => navigate('/sign-up')}>Sign Up</span></p>
+                </div>
             </div>
 
         </>

@@ -2,8 +2,10 @@ import React from 'react'
 import './BasicInfo.css'
 import SideNavBar from './components/sidenavbar/SideNavBar'
 import Header from './components/headerpage/Header'
+import { useNavigate } from 'react-router-dom';
 
 function BasicInfo() {
+    const navigate = useNavigate()
     return (
         <>
             <div className="container">
@@ -99,7 +101,7 @@ function BasicInfo() {
                                 <button className="cancel">
                                     Cancel
                                 </button>
-                                <button className="save">
+                                <button className="save" onClick={() => navigate('/property-detail')}>
                                     Save &#38; continue
                                 </button>
                             </div>
