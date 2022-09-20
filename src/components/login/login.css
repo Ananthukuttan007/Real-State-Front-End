@@ -1,4 +1,4 @@
-.login-container{
+.login-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9,24 +9,26 @@
     margin-left: 35%;
     margin-top: 10%;
     border-radius: 10px;
-    
+
 }
-input{
+
+input {
     width: 300px;
     height: 35px;
     border: 1px solid #4C57B6;
     border-radius: 5px;
 
 }
-h1{
+
+h1 {
     font-family: 'Open Sans';
     font-style: normal;
     letter-spacing: 0.25px;
     color: #4C57B6;
-  
+
 }
 
-button{
+button {
     background: #4C57B6;
     border-radius: 5px #4C57B6;
     width: 300px;
@@ -34,22 +36,39 @@ button{
     color: white;
     border: #4C57B6;
 }
-body{
+
+body {
     background-color: #E1F9F4;
 }
-.pg span{
+
+.pg span {
     text-align: center;
     margin-top: 30px;
 }
 
-.name{
-    color:  #352D66;
+.signupMessage {
+    padding-left: 70px;
 }
-.signup{
-    color:  #352D66;
-    
+
+.signUpSpan:hover {
+    color: rgb(213, 147, 147);
 }
+
+.name {
+    color: #352D66;
+}
+
+.signup {
+    color: #352D66;
+
+}
+
+.login-container button:first-of-type:hover {
+    background-color: #0b114a;
+}
+
+
 a {
-     text-decoration: none;
-     color:  #352D66;
- }
+    text-decoration: none;
+    color: #352D66;
+}
