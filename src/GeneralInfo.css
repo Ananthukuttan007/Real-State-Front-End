@@ -1,164 +1,117 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;1,100&display=swap');
+import React, { useState } from 'react'
+import './GeneralInfo.css'
+import SideNavBar from './components/sidenavbar/SideNavBar'
+import Header from './components/headerpage/Header'
 
-#root {
-    font-family: sans-serif;
-    font-size: 15px;
+function GeneralInfo() {
+    const [fileName, setFileName] = useState("Add Photo");
+    return (
+        <>
+            <div className="container">
+                <div className="left">
+                    <SideNavBar />
+                </div>
+                <div className="right">
+                    <Header />
+                    <h4 className="addANewProperty">
+                        Add new Property
+                    </h4>
+
+                    <div className="progress">
+
+
+                        <div className="BasicInfo1">
+                            <p>1</p> &nbsp;&nbsp;
+                            <p>Basic Info</p>
+                        </div>
+
+
+                        <div className="PropertyDetail">
+                            <p>2</p>&nbsp;&nbsp;
+                            <p>Property  Detail</p>
+                        </div>
+
+
+
+                        <div className="GeneralInfo1">
+                            <p>3</p>&nbsp;&nbsp;
+                            <p>General Info</p>
+                        </div>
+
+
+                        <div className="LocationInfo">
+                            <p>3</p>&nbsp;&nbsp;
+                            <p>Location Info</p>
+                        </div>
+
+                    </div>
+                    <div className="formBox">
+                        <form action="">
+                            <div className="leftFormBox">
+                                <label for="Name">Name</label>
+                                <input type="text" placeholder='Owner' />
+                                <label for='Posted By'>Posted By</label>
+
+                                <input type="text" id='Posted By' placeholder='Posted By' />
+
+                                <label for='Featured Package'>Featured Package</label>
+                                <select name="Featured Package" id='Featured Package'>
+                                    <option value="" disabled selected>Featured Package</option>
+                                    <option >4</option>
+                                    <option >5</option>
+                                    <option >6</option>
+                                    <option >7</option>
+                                </select>
+                                <input onChange={(e) => {
+                                    setFileName(e.target.value.split("\\").pop())
+                                    // setFile(e.target.files[0])
+                                }
+                                }
+                                    type="file" name="PostImage" id="file" class="inputfile" style={{ display: "none" }} />
+
+                                <label className='buttonLabel' style={{ display: 'inline-block' }} for="file">
+                                    <img src="images/Vector.png" alt="Browse" />
+                                </label>&nbsp;&nbsp;
+                                <p style={{ display: 'inline-block' }} >{fileName}</p>
+
+                            </div>
+                            <div className="rightFormBox">
+                                <label for='Mobile'>Mobile</label>
+                                <input type="number" name="Mobile" id="Mobile" placeholder='Enter Mobile Number' />
+                                <label for='Sale Type'>Sale Type</label>
+                                <select name="Sale Type" id='Sale Type'>
+                                    <option value="" disabled selected>Select Sale Type</option>
+                                    <option >Direct</option>
+                                    <option >Auction</option>
+                                </select>
+                                <label for='PPD Package'>PPD Package</label>
+                                <select name="PPD Package" id='PPD Package'>
+                                    <option value="" disabled selected>Select PPD Package</option>
+                                    <option >1</option>
+                                    <option >2</option>
+                                    <option >3</option>
+                                    <option >4</option>
+                                </select>
+                                <label for='space' style={{ visibility: 'hidden' }}>Space</label>
+                                <input type="text" style={{ visibility: 'hidden' }} />
+                            </div>
+
+                            <div className="buttonBox1">
+                                <button className="Previous">
+                                    Previous
+                                </button>
+                                <button className=" save">
+                                    Save &#38; continue
+                                </button>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </>
+    )
 }
 
-.BasicInfo1 {
-    position: absolute;
-    right: 740px;
-    padding-left: 15px;
-    box-sizing: border-box;
-
-    background: transparent;
-    box-shadow: none;
-    border-radius: 500px;
-    width: 200px;
-    height: 60px;
-
-    font-family: 'Source Sans Pro';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 25px;
-
-}
-
-.BasicInfo1 p:first-child {
-    display: inline-block;
-    background: #E1F9F4;
-    color: #A6A6A6;
-    width: 25px;
-    height: 25px;
-    border-radius: 100%;
-    box-sizing: border-box;
-    text-align: center;
-}
-
-.BasicInfo1 p:nth-child(2) {
-    display: inline-block;
-    color: #A6A6A6;
-}
-
-.PropertyDetail1 {
-    position: absolute;
-    right: 500px;
-    padding-left: 15px;
-    background: #6AB4F8;
-    box-shadow: 0px 13px 25px rgba(0, 0, 0, 0.15);
-    box-sizing: border-box;
-    border-radius: 500px;
-    width: 200px;
-    height: 60px;
-
-    font-family: 'Source Sans Pro';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 25px;
-}
-
-.PropertyDetail1 p:first-child {
-
-    display: inline-block;
-    background-color: #FFFFFF;
-    color: black;
-    width: 25px;
-    height: 25px;
-    border-radius: 100%;
-    box-sizing: border-box;
-    text-align: center;
-}
-
-.PropertyDetail1 p:nth-child(2) {
-    display: inline-block;
-    color: white;
-}
-
-.GeneralInfo1 {
-    position: absolute;
-    right: 240px;
-    padding-left: 15px;
-    background: #6AB4F8;
-    box-shadow: 0px 13px 25px rgba(0, 0, 0, 0.15);
-    box-sizing: border-box;
-    border-radius: 500px;
-    width: 200px;
-    height: 60px;
-
-    font-family: 'Source Sans Pro';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 25px;
-}
-
-.GeneralInfo1 p:first-child {
-    display: inline-block;
-    background: white;
-    color: black;
-    width: 25px;
-    height: 25px;
-    border-radius: 100%;
-    box-sizing: border-box;
-    text-align: center;
-}
-
-.GeneralInfo1 p:nth-child(2) {
-    display: inline-block;
-    color: white;
-}
-
-.LocationInfo {
-    position: absolute;
-    left: 750px;
-    padding-left: 15px;
-    box-sizing: border-box;
-    border-radius: 500px;
-    width: 200px;
-    height: 60px;
-
-    font-family: 'Source Sans Pro';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 25px;
-}
-
-.LocationInfo p:first-child {
-    display: inline-block;
-    background: #E1F9F4;
-    color: #A6A6A6;
-    width: 25px;
-    height: 25px;
-    border-radius: 100%;
-    box-sizing: border-box;
-    text-align: center;
-}
-
-.LocationInfo p:nth-child(2) {
-    display: inline-block;
-    color: #AAAAAA;
-}
-
-.buttonLabel {
-    width: 50px;
-    height: 50px;
-    background-color: #6AB4F8;
-    border-radius: 100%;
-    text-align: center;
-    padding-top: 13px;
-    box-sizing: border-box;
-    font-size: smaller;
-}
-
-.buttonLabel:hover {
-    background-color: #4C57B6;
-}
-
-.buttonLabel img {
-    height: 20px;
-    display: inline;
-
-}
+export default GeneralInfo
