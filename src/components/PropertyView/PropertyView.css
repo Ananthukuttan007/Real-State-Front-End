@@ -1,24 +1,21 @@
-.maincontainer{
-position: absolute;
-left: 0%;
-right: -0.31%;
-top: 0%;
-bottom: 0%;
-background: #E1F9F4;
+.maincontainer {
+    position: absolute;
+    left: 0%;
+    right: -0.31%;
+    top: 0%;
+    bottom: 0%;
+    background: #E1F9F4;
 }
 
-.sidenav{ 
-    justify-content: space-between;    
+.sidenav {
+    justify-content: space-between;
 }
 
-.subpart{
+.subpart {
     position: absolute;
     left: 20%;
     right: -0.31%;
     top: 0%;
     bottom: 0%;
     background: #F5F5F5;
-    }
-
-
-
+}

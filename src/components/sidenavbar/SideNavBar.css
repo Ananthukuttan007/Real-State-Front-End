@@ -1,11 +1,12 @@
 .sidebarconatiner {
-  background-color: E1F9F4;
+  background-color: #E1F9F4;
   width: 317px;
 }
 
 .logooption {
   margin-left: 130px;
 }
+
 .sidesubcontainer {
   margin-left: 50px;
   display: flex;
