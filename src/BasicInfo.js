@@ -1,17 +1,17 @@
 import React from 'react'
 import './BasicInfo.css'
+import SideNavBar from './components/sidenavbar/SideNavBar'
+import Header from './components/headerpage/Header'
 
 function BasicInfo() {
     return (
         <>
             <div className="container">
-                <aside>
-
-                </aside>
+                <div className="left">
+                    <SideNavBar />
+                </div>
                 <div className="right">
-                    <nav>
-
-                    </nav>
+                    <Header />
                     <h4 className="addANewProperty">
                         Add new Property
                     </h4>
