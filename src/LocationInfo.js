@@ -3,8 +3,31 @@ import './LocationInfo.css'
 import SideNavBar from './components/sidenavbar/SideNavBar'
 import Header from './components/headerpage/Header'
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios'
 
 function LocationInfo({ formData, setFormData }) {
+    const addProperty = (e) => {
+        e.preventDefault();
+        axios.post('http://localhost:8080/asset/', formData,
+            {
+                headers: {
+                    Authorization: localStorage.getItem('token')
+                }
+            })
+            .then(function (response) {
+                console.log(response.data);
+                alert(response.data.message);
+                if (response.data.message === "success") {
+                    navigate('/home-page')
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+                alert('error')
+            });
+    }
+
+
     const navigate = useNavigate()
     return (
         <>
@@ -115,7 +138,9 @@ function LocationInfo({ formData, setFormData }) {
                                 <button className="Previous" onClick={() => navigate('/general-info')}>
                                     Previous
                                 </button>
-                                <button className="Add">
+                                <button className="Add"
+                                    onClick={addProperty}
+                                >
                                     Add Property
                                 </button>
                             </div>

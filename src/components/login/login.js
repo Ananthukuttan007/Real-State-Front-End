@@ -26,6 +26,8 @@ const Login = () => {
                 console.log(response.data);
                 alert(response.data.message);
                 if (response.data.message == "success") {
+                    localStorage.setItem('token', response.data.token)
+                    console.log("local", localStorage)
                     navigate('/home-page')
                 }
             })

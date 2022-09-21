@@ -91,9 +91,9 @@ function BasicInfo({ formData, setFormData }) {
                                 <label for='Negotiable'>Negotiable</label>
                                 <select name="Negotiable" id='Negotiable'
                                     onChange={(e) => {
-                                        setFormData({ ...formData, propertyDescription: e.target.value });
+                                        setFormData({ ...formData, negotable: e.target.value });
                                     }}
-                                    value={formData.propertyDescription}
+                                    value={formData.negotable}
                                 >
                                     <option value="" disabled selected>Negotiable</option>
                                     <option >Yes</option>
