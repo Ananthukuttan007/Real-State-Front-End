@@ -4,7 +4,7 @@ import SideNavBar from './components/sidenavbar/SideNavBar'
 import Header from './components/headerpage/Header'
 import { useNavigate } from 'react-router-dom';
 
-function LocationInfo() {
+function LocationInfo({ formData, setFormData }) {
     const navigate = useNavigate()
     return (
         <>
@@ -50,25 +50,65 @@ function LocationInfo() {
                         <form action="">
                             <div className="leftFormBox">
                                 <label for="Email">Email</label>
-                                <input type="text" id='Email' placeholder='Email' />
+                                <input type="text" id='Email' placeholder='Email'
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, email: e.target.value });
+                                    }}
+                                    value={formData.email}
+                                />
                                 <label for='Area'>Area</label>
-                                <input type="Area" id='Area' placeholder='Area' />
+                                <input type="Area" id='Area' placeholder='Area'
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, area: e.target.value });
+                                    }}
+                                    value={formData.area}
+                                />
 
                                 <label for='Address'>Address</label>
-                                <input type="text" placeholder='Address' />
+                                <input type="text" placeholder='Address'
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, address: e.target.value });
+                                    }}
+                                    value={formData.address}
+                                />
                                 <label for='Latitude'>Latitude
                                 </label>
-                                <input type="text" id='Latitude' placeholder='Latitude' />
+                                <input type="text" id='Latitude' placeholder='Latitude'
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, latitude: e.target.value });
+                                    }}
+                                    value={formData.latitude}
+                                />
                             </div>
                             <div className="rightFormBox">
                                 <label for='City'>City</label>
-                                <input type="text" placeholder='City' />
+                                <input type="text" placeholder='City'
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, city: e.target.value });
+                                    }}
+                                    value={formData.city}
+                                />
                                 <label for='Pincode'>Pincode</label>
-                                <input type="text" placeholder='Pincode' />
+                                <input type="text" placeholder='Pincode'
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, pincode: e.target.value });
+                                    }}
+                                    value={formData.pincode}
+                                />
                                 <label for='Landmark'>Landmark</label>
-                                <input type="text" placeholder='Landmark' />
+                                <input type="text" placeholder='Landmark'
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, landmark: e.target.value });
+                                    }}
+                                    value={formData.landmark}
+                                />
                                 <label for='Longitude'>Longitude</label>
-                                <input type="text" placeholder='Longitude' />
+                                <input type="text" placeholder='Longitude'
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, longitude: e.target.value });
+                                    }}
+                                    value={formData.longitude}
+                                />
                             </div>
 
                             <div className="buttonBox">
