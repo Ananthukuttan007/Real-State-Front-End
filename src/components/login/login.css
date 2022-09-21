@@ -84,3 +84,12 @@ a {
     text-decoration: none;
     color: #352D66;
 }
+
+.password-toggle-icon{
+    position: absolute;
+    margin-top: 70px;
+    margin-left: 280px;
+    z-index: 1000;
+    cursor: pointer;
+    color: gray;
+ }

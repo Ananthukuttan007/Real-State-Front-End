@@ -1,8 +1,16 @@
 import "../login/login.css"
-import { Link } from "react-router-dom"
-import { useNavigate } from 'react-router-dom';
+import {Link} from "react-router-dom"
+import { FontawesomeIcon } from "@fortawesome/react-fontawesome"
+import usePasswordToggle from "./usePasswordToggle"
+import { library, Library } from "@fortawesome/fontawesome-svg-core"
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"
+library.add(faEye,faEyeSlash)
+
+
+
+
 const Login = () => {
-    const navigate = useNavigate()
+    const [passwordInputType, ToggleIcon] = usePasswordToggle()
     return (
         <>
             <div>
@@ -14,24 +22,24 @@ const Login = () => {
                         placeholder="&nbsp;&nbsp;User ID"
                         name="username"
 
-                    /> <br></br>
-                    <input
-                        type="password"
+                     /> <br></br>
+                     <input
+                        type={passwordInputType}
                         name="password"
                         placeholder="&nbsp;&nbsp;Password"
-                    /> <br></br>
-                    <button type="submit">
+                     />
+                     <span className="password-toggle-icon">{ToggleIcon}</span> 
+                     <br></br>
+                     <button type="submit">
                         Sign In
-                    </button>  <br></br>
-                    <Link to="/sign-up">
-                        <p className="signup">
-                            Sign Up
-                        </p>
-                    </Link>
+                     </button>  <br></br>
+                     <Link to="/sign-up">
+                     <p className="signup">
+                       Sign Up 
+                     </p>
+                     </Link>
                 </div>
-                <div className="signupMessage">
-                    <p className="pg">Don't have an accout? <span className="signUpSpan" onClick={() => navigate('/sign-up')}>Sign Up</span></p>
-                </div>
+                <p className="pg">Don't have an accout? <span className="name">Sign Up</span></p>
             </div>
 
         </>
