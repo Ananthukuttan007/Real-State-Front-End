@@ -1,17 +1,42 @@
 import React from 'react'
 import './LocationInfo.css'
+import SideNavBar from './components/sidenavbar/SideNavBar'
+import Header from './components/headerpage/Header'
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios'
 
-function LocationInfo() {
+function LocationInfo({ formData, setFormData }) {
+    const addProperty = (e) => {
+        e.preventDefault();
+        axios.post('http://localhost:8080/asset/', formData,
+            {
+                headers: {
+                    Authorization: localStorage.getItem('token')
+                }
+            })
+            .then(function (response) {
+                console.log(response.data);
+                alert(response.data.message);
+                if (response.data.message === "success") {
+                    navigate('/home-page')
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+                alert('error')
+            });
+    }
+
+
+    const navigate = useNavigate()
     return (
         <>
             <div className="container">
-                <aside>
-
-                </aside>
+                <div className="left">
+                    <SideNavBar />
+                </div>
                 <div className="right">
-                    <nav>
-
-                    </nav>
+                    <Header />
                     <h4 className="addANewProperty">
                         Add new Property
                     </h4>
@@ -48,32 +73,74 @@ function LocationInfo() {
                         <form action="">
                             <div className="leftFormBox">
                                 <label for="Email">Email</label>
-                                <input type="text" id='Email' placeholder='Email' />
+                                <input type="text" id='Email' placeholder='Email'
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, email: e.target.value });
+                                    }}
+                                    value={formData.email}
+                                />
                                 <label for='Area'>Area</label>
-                                <input type="Area" id='Area' placeholder='Area' />
+                                <input type="Area" id='Area' placeholder='Area'
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, area: e.target.value });
+                                    }}
+                                    value={formData.area}
+                                />
 
                                 <label for='Address'>Address</label>
-                                <input type="text" placeholder='Address' />
+                                <input type="text" placeholder='Address'
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, address: e.target.value });
+                                    }}
+                                    value={formData.address}
+                                />
                                 <label for='Latitude'>Latitude
                                 </label>
-                                <input type="text" id='Latitude' placeholder='Latitude' />
+                                <input type="text" id='Latitude' placeholder='Latitude'
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, latitude: e.target.value });
+                                    }}
+                                    value={formData.latitude}
+                                />
                             </div>
                             <div className="rightFormBox">
                                 <label for='City'>City</label>
-                                <input type="text" placeholder='City' />
+                                <input type="text" placeholder='City'
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, city: e.target.value });
+                                    }}
+                                    value={formData.city}
+                                />
                                 <label for='Pincode'>Pincode</label>
-                                <input type="text" placeholder='Pincode' />
+                                <input type="text" placeholder='Pincode'
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, pincode: e.target.value });
+                                    }}
+                                    value={formData.pincode}
+                                />
                                 <label for='Landmark'>Landmark</label>
-                                <input type="text" placeholder='Landmark' />
+                                <input type="text" placeholder='Landmark'
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, landmark: e.target.value });
+                                    }}
+                                    value={formData.landmark}
+                                />
                                 <label for='Longitude'>Longitude</label>
-                                <input type="text" placeholder='Longitude' />
+                                <input type="text" placeholder='Longitude'
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, longitude: e.target.value });
+                                    }}
+                                    value={formData.longitude}
+                                />
                             </div>
 
                             <div className="buttonBox">
-                                <button className="Previous">
+                                <button className="Previous" onClick={() => navigate('/general-info')}>
                                     Previous
                                 </button>
-                                <button className="Add">
+                                <button className="Add"
+                                    onClick={addProperty}
+                                >
                                     Add Property
                                 </button>
                             </div>

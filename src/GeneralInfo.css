@@ -153,12 +153,13 @@
     font-size: smaller;
 }
 
-.buttonLabel:hover {
-    background-color: #4C57B6;
-}
 
 .buttonLabel img {
     height: 20px;
     display: inline;
 
+}
+
+.buttonLabel:hover {
+    background: #4C57B6;
 }

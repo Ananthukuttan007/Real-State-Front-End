@@ -1,18 +1,20 @@
 import React, { useState } from 'react'
 import './GeneralInfo.css'
+import SideNavBar from './components/sidenavbar/SideNavBar'
+import Header from './components/headerpage/Header'
+import { useNavigate } from 'react-router-dom';
 
-function GeneralInfo() {
+function GeneralInfo({ formData, setFormData }) {
+    const navigate = useNavigate()
     const [fileName, setFileName] = useState("Add Photo");
     return (
         <>
             <div className="container">
-                <aside>
-
-                </aside>
+                <div className="left">
+                    <SideNavBar />
+                </div>
                 <div className="right">
-                    <nav>
-
-                    </nav>
+                    <Header />
                     <h4 className="addANewProperty">
                         Add new Property
                     </h4>
@@ -49,13 +51,28 @@ function GeneralInfo() {
                         <form action="">
                             <div className="leftFormBox">
                                 <label for="Name">Name</label>
-                                <input type="text" placeholder='Owner' />
+                                <input type="text" placeholder='Owner'
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, name: e.target.value });
+                                    }}
+                                    value={formData.name}
+                                />
                                 <label for='Posted By'>Posted By</label>
 
-                                <input type="text" id='Posted By' placeholder='Posted By' />
+                                <input type="text" id='Posted By' placeholder='Posted By'
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, postedBy: e.target.value });
+                                    }}
+                                    value={formData.postedBy}
+                                />
 
                                 <label for='Featured Package'>Featured Package</label>
-                                <select name="Featured Package" id='Featured Package'>
+                                <select name="Featured Package" id='Featured Package'
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, featuredPackage: e.target.value });
+                                    }}
+                                    value={formData.featuredPackage}
+                                >
                                     <option value="" disabled selected>Featured Package</option>
                                     <option >4</option>
                                     <option >5</option>
@@ -77,15 +94,30 @@ function GeneralInfo() {
                             </div>
                             <div className="rightFormBox">
                                 <label for='Mobile'>Mobile</label>
-                                <input type="number" name="Mobile" id="Mobile" placeholder='Enter Mobile Number' />
+                                <input type="number" name="Mobile" id="Mobile" placeholder='Enter Mobile Number'
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, mobile: e.target.value });
+                                    }}
+                                    value={formData.mobile}
+                                />
                                 <label for='Sale Type'>Sale Type</label>
-                                <select name="Sale Type" id='Sale Type'>
+                                <select name="Sale Type" id='Sale Type'
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, saleType: e.target.value });
+                                    }}
+                                    value={formData.saleType}
+                                >
                                     <option value="" disabled selected>Select Sale Type</option>
                                     <option >Direct</option>
                                     <option >Auction</option>
                                 </select>
                                 <label for='PPD Package'>PPD Package</label>
-                                <select name="PPD Package" id='PPD Package'>
+                                <select name="PPD Package" id='PPD Package'
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, ppdPackage: e.target.value });
+                                    }}
+                                    value={formData.ppdPackage}
+                                >
                                     <option value="" disabled selected>Select PPD Package</option>
                                     <option >1</option>
                                     <option >2</option>
@@ -97,10 +129,10 @@ function GeneralInfo() {
                             </div>
 
                             <div className="buttonBox1">
-                                <button className="Previous">
+                                <button className="Previous" onClick={() => navigate('/property-detail')}>
                                     Previous
                                 </button>
-                                <button className=" save">
+                                <button className=" save" onClick={() => navigate('/location-info')}>
                                     Save &#38; continue
                                 </button>
                             </div>

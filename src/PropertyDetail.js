@@ -1,17 +1,20 @@
 import React from 'react'
 import './PropertyDetail.css'
+import SideNavBar from './components/sidenavbar/SideNavBar'
+import Header from './components/headerpage/Header'
+import { useNavigate } from 'react-router-dom';
 
-function PropertyDetail() {
+
+function PropertyDetail({ formData, setFormData }) {
+    const navigate = useNavigate()
     return (
         <>
             <div className="container">
-                <aside>
-
-                </aside>
+                <div className="left">
+                    <SideNavBar />
+                </div>
                 <div className="right">
-                    <nav>
-
-                    </nav>
+                    <Header />
                     <h4 className="addANewProperty">
                         Add new Property
                     </h4>
@@ -48,13 +51,29 @@ function PropertyDetail() {
                         <form action="">
                             <div className="leftFormBox">
                                 <label for="Length">Length</label>
-                                <input type="number" placeholder='Example 1000' />
+                                <input type="number" placeholder='Example 1000'
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, length: e.target.value });
+                                    }}
+                                    value={formData.length}
+                                />
                                 <label for='Total Area'>Total Area</label>
 
-                                <input type="number" id='total area' placeholder='Example: 7500' />
+                                <input type="number" id='total area' placeholder='Example: 7500'
+
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, totalArea: e.target.value });
+                                    }}
+                                    value={formData.totalArea}
+                                />
 
                                 <label for='Number of BHK'>No of BHK</label>
-                                <select name="Number of BHK" id='Number of BHK'>
+                                <select name="Number of BHK" id='Number of BHK'
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, noOfBHK: e.target.value });
+                                    }}
+                                    value={formData.noOfBHK}
+                                >
                                     <option value="" disabled selected>Select Number of BHK</option>
                                     <option >4</option>
                                     <option >5</option>
@@ -63,28 +82,48 @@ function PropertyDetail() {
                                 </select>
                                 <label for='Attached'>Attached
                                 </label>
-                                <select name="Attached" id='Attached'>
+                                <select name="Attached" id='Attached'
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, attached: e.target.value });
+                                    }}
+                                    value={formData.attached}
+                                >
                                     <option value="" disabled selected>Select Attached</option>
                                     <option >Yes</option>
                                     <option >No</option>
                                 </select>
                                 <label for='Furnished'>Furnished
                                 </label>
-                                <select name="Furnished" id='Furnished'>
+                                <select name="Furnished" id='Furnished'
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, furnished: e.target.value });
+                                    }}
+                                    value={formData.furnished}
+                                >
                                     <option value="" disabled selected>Select Furnished</option>
                                     <option >Yes</option>
                                     <option >No</option>
                                 </select>
                                 <label for='Lift'>Lift
                                 </label>
-                                <select name="Lift" id='Lift'>
+                                <select name="Lift" id='Lift'
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, lift: e.target.value });
+                                    }}
+                                    value={formData.lift}
+                                >
                                     <option value="" disabled selected>Select Lift</option>
                                     <option >Yes</option>
                                     <option >No</option>
                                 </select>
                                 <label for='Facing'>Facing
                                 </label>
-                                <select name="Facing" id='Facing'>
+                                <select name="Facing" id='Facing'
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, facing: e.target.value });
+                                    }}
+                                    value={formData.facing}
+                                >
                                     <option value="" disabled selected>Select Facing</option>
                                     <option >North</option>
                                     <option >North-East</option>
@@ -98,15 +137,30 @@ function PropertyDetail() {
                             </div>
                             <div className="rightFormBox">
                                 <label for='Breadth'>Breadth</label>
-                                <input type="number" name="Breadth" id="Breadth" placeholder='Example: 1000' />
+                                <input type="number" name="Breadth" id="Breadth" placeholder='Example: 1000'
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, breath: e.target.value });
+                                    }}
+                                    value={formData.breath}
+                                />
                                 <label for='Area Unit'>Area Unit</label>
-                                <select name="Area Unit" id='Area Unit'>
+                                <select name="Area Unit" id='Area Unit'
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, areaUnit: e.target.value });
+                                    }}
+                                    value={formData.areaUnit}
+                                >
                                     <option value="" disabled selected>Select Area Unit</option>
                                     <option >sq ft</option>
                                     <option >sq cm</option>
                                 </select>
                                 <label for='No of Floors'>No of Floors</label>
-                                <select name="No of Floors" id='No of Floors'>
+                                <select name="No of Floors" id='No of Floors'
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, noOfFloor: e.target.value });
+                                    }}
+                                    value={formData.noOfFloor}
+                                >
                                     <option value="" disabled selected>Select No of Floors</option>
                                     <option >1</option>
                                     <option >2</option>
@@ -114,28 +168,43 @@ function PropertyDetail() {
                                     <option >4</option>
                                 </select>
                                 <label for='Western Toilet'>Western Toilet</label>
-                                <select name="Western Toilet" id='Western Toilet'>
+                                <select name="Western Toilet" id='Western Toilet'
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, western: e.target.value });
+                                    }}
+                                    value={formData.western}
+                                >
                                     <option value="" disabled selected>Select Western Toilet</option>
                                     <option >Yes</option>
                                     <option >No</option>
                                 </select>
                                 <label for='Car Parking'>Car Parking</label>
-                                <select name="Car Parking" id='Car Parking'>
+                                <select name="Car Parking" id='Car Parking'
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, carParking: e.target.value });
+                                    }}
+                                    value={formData.carParking}
+                                >
                                     <option value="" disabled selected>Select Car Parking</option>
                                     <option >Yes</option>
                                     <option >No</option>
                                 </select>
                                 <label for='Electricity'>Electricity</label>
-                                <input type="text" placeholder='Example: 3 Phase' />
+                                <input type="text" placeholder='Example: 3 Phase'
+                                    onChange={(e) => {
+                                        setFormData({ ...formData, electricity: e.target.value });
+                                    }}
+                                    value={formData.electricity}
+                                />
                                 <label for='space' style={{ visibility: 'hidden' }}>Space</label>
                                 <input type="text" style={{ visibility: 'hidden' }} />
                             </div>
 
                             <div className="buttonBox1">
-                                <button className="Previous">
+                                <button className="Previous" onClick={() => navigate('/basic-info')}>
                                     Previous
                                 </button>
-                                <button className=" save">
+                                <button className=" save" onClick={() => navigate('/general-info')}>
                                     Save &#38; continue
                                 </button>
                             </div>

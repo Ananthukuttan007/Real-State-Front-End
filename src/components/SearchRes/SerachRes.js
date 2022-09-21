@@ -20,7 +20,7 @@ const SearchRes = () => {
             <BsSearch className="btncolor" />
           </button>
         </div>
-        <Link to="">
+        <Link to="/basic-info">
           <button type="sumbit" className="addbtn">
             <BsPlus /> Add Property
           </button>
