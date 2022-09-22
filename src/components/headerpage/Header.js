@@ -4,7 +4,7 @@ import { BiUser } from "react-icons/bi";
 import Logout from "../Logout/Logout";
 
 const Header = () => {
-  const userId = localStorage.getItem("userid");
+  const userId = localStorage.getItem("userId");
   const userName = userId.split("@")[0];
   return (
     <>

@@ -5,7 +5,12 @@ import Header from './components/headerpage/Header'
 import { useNavigate } from 'react-router-dom';
 
 function GeneralInfo({ formData, setFormData }) {
+    const token = localStorage.getItem("token");
     const navigate = useNavigate()
+    if (token == undefined) {
+        alert("login to continue")
+        navigate('/')
+    }
     const [fileName, setFileName] = useState("Add Photo");
     return (
         <>

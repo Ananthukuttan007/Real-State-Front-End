@@ -4,6 +4,11 @@ import Header from './components/headerpage/Header'
 import { useNavigate } from 'react-router-dom';
 function BasicInfo({ formData, setFormData }) {
     const navigate = useNavigate()
+    const token = localStorage.getItem("token");
+    if (token == undefined) {
+        alert("login to continue")
+        navigate('/')
+    }
     return (
         <>
             <div className="container">

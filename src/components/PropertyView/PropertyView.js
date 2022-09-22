@@ -1,13 +1,18 @@
 import "./PropertyView.css";
 import SideNavBar from "../sidenavbar/SideNavBar";
+import { useNavigate } from 'react-router-dom';
 import Header from "../headerpage/Header";
 import React, { useState, useEffect } from "react";
 import SearchRes from "../SearchRes/SerachRes";
 import PropertyList from "../list/list";
 const PropertyView = () => {
+  const navigate = useNavigate()
   const [property, setProperty] = useState([]);
-  const token = localStorage.getItem("authorization");
-
+  const token = localStorage.getItem("token");
+  if (token == undefined) {
+    alert("login to continue")
+    navigate('/')
+  }
   useEffect(() => {
     async function fetchData() {
       const response = await fetch("{Fetch URL}", {
@@ -22,6 +27,7 @@ const PropertyView = () => {
     }
     fetchData();
   }, [token]);
+
 
   //console.log(property)
 
@@ -38,7 +44,8 @@ const PropertyView = () => {
           </div>
 
           <div className="searchpart">
-            <SearchRes property={property} />
+
+            <SearchRes />
           </div>
         </div>
       </div>

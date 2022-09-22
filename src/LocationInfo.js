@@ -29,6 +29,12 @@ function LocationInfo({ formData, setFormData }) {
 
 
     const navigate = useNavigate()
+
+    const token = localStorage.getItem("token");
+    if (token == undefined) {
+        alert("login to continue")
+        navigate('/')
+    }
     return (
         <>
             <div className="container">
