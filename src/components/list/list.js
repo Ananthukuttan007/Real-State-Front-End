@@ -3,9 +3,10 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 const PropertyList = () => {
   const [state, setState] = useState([]);
-  const [button, setbutton] = useState(false)
+  
+  const [buttonValue, setButtonValue] = useState(false)
   const toggle = () => {
-    setbutton(!button)
+    setButtonValue(!buttonValue)
   }
   // const btn = document.getElementById('btn');
 
@@ -13,6 +14,7 @@ const PropertyList = () => {
   // btn.addEventListener('click', function handleClick() {
   //   btn.textContent = 'Sold';
   // });
+  
   useEffect(() => {
     axios.get('http://localhost:8080/asset/', {
       headers: {
@@ -28,6 +30,7 @@ const PropertyList = () => {
       });
   }, [])
   return (
+   
     <>
 
       <div className="propertycontainer">
@@ -45,33 +48,41 @@ const PropertyList = () => {
               <th className="thtext actiontxt">Action</th>
             </tr>
           </thead>
-
+          <div className="propertycontainer">
           {state.map(user => {
             console.log(user)
             return (
               <>
+                <div className="property">
                 <tr className="tablehead data">
-                  <td>{user.PPDId}</td>
+                  <td className="thtext data">{user.PPDId}</td>
                   <td className="image"><i class="fa-sharp fa-solid fa-images"></i></td>
-                  <td>{user.propertyType}</td>
-                  <td>{user.mobile}</td>
-                  <td>{user.area}</td>
-                  <td>{user.Views}</td>
-                  <td>{<button id="btn" onClick={toggle}>{button ? 'sold' : 'Unsold'}</button>}</td>
-                  <td>{user.DaysLeft}</td>
+                  <td className="thtext data">{user.propertyType}</td>
+                  <td className="thtext data thmobile">{user.mobile}</td>
+                  <td className="thtext data">{user.area}</td>
+                  <td className="thtext data">{user.Views}</td>
+                  <td className="thtext data">{<button id="btn" onClick={toggle}>{buttonValue ? 'sold' : 'Unsold'}</button>}</td>
+                  <td className="thtext data">{user.DaysLeft}</td>
                   <td className="eye"><i class="fa-solid fa-eye"></i></td>
                   <td className="pen"><i class="fa-solid fa-pen"></i></td>
                 </tr>
+                </div>
+                
               </>
+              
             )
+            
           })}
-
+          </div>
 
 
 
         </table>
+        
       </div>
+      
     </>
+    
   );
 };
 export default PropertyList;
