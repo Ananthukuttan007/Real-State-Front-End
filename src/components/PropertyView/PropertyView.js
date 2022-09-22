@@ -6,13 +6,13 @@ import SearchRes from "../SearchRes/SerachRes";
 import PropertyList from "../list/list";
 const PropertyView = () => {
   const [property, setProperty] = useState([]);
-  const authToken = localStorage.getItem("authorization");
+  const token = localStorage.getItem("authorization");
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch("http://localhost:3010/list", {
+      const response = await fetch("{Fetch URL}", {
         headers: {
-          authorization: authToken,
+          authorization: token,
         },
       });
       // console.log(response)
@@ -21,7 +21,7 @@ const PropertyView = () => {
       // console.log(data);
     }
     fetchData();
-  }, [authToken]);
+  }, [token]);
 
   //console.log(property)
 
