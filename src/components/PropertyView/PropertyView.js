@@ -45,7 +45,7 @@ const PropertyView = () => {
 
           <div className="searchpart">
 
-            <SearchRes />
+            <SearchRes property={property} />
           </div>
         </div>
       </div>

@@ -14,24 +14,28 @@ const PropertyList = () => {
   //   btn.textContent = 'Sold';
   // });
   useEffect(() => {
-    axios.get('http://localhost:8080/asset/')
-        .then(function (response) {
-            setState(response.data.reverse());
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-}, [])
+    axios.get('http://localhost:8080/asset/', {
+      headers: {
+        Authorization: localStorage.getItem('token')
+      }
+    })
+      .then(function (response) {
+        setState(response.data.reverse());
+        console.log(response.data.message);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, [])
   return (
     <>
-    
+
       <div className="propertycontainer">
         <table>
           <thead>
             <tr className="tablehead">
               <th className="thtext ppdidhead">PPD Id</th>
-              <th className="thtext">Inuge</th>
+              <th className="thtext">Image</th>
               <th className="thtext">Property</th>
               <th className="thtext thmobile">Contact</th>
               <th className="thtext">Area</th>
@@ -42,28 +46,29 @@ const PropertyList = () => {
             </tr>
           </thead>
 
-            {state.map(user => {
-              return(
-                <>
-              <tr className="tablehead data">
-              <td>{}</td>
-              <td className="image"><i class="fa-sharp fa-solid fa-images"></i></td>
-              <td>{user.property}</td>
-              <td>{user.contact}</td>
-              <td>{user.area}</td>
-              <td>{}</td>
-              <td>{<button id="btn" onClick={toggle}>{button ? 'sold' :'Unsold'}</button>}</td>
-              <td>{}</td>
-              <td className="eye"><i class="fa-solid fa-eye"></i></td>
-              <td className="pen"><i class="fa-solid fa-pen"></i></td>
-            </tr>
-            </>
-              )
-            })}
-              
-              
-            
-          
+          {state.map(user => {
+            console.log(user)
+            return (
+              <>
+                <tr className="tablehead data">
+                  <td>{user.PPDId}</td>
+                  <td className="image"><i class="fa-sharp fa-solid fa-images"></i></td>
+                  <td>{user.propertyType}</td>
+                  <td>{user.mobile}</td>
+                  <td>{user.area}</td>
+                  <td>{user.Views}</td>
+                  <td>{<button id="btn" onClick={toggle}>{button ? 'sold' : 'Unsold'}</button>}</td>
+                  <td>{user.DaysLeft}</td>
+                  <td className="eye"><i class="fa-solid fa-eye"></i></td>
+                  <td className="pen"><i class="fa-solid fa-pen"></i></td>
+                </tr>
+              </>
+            )
+          })}
+
+
+
+
         </table>
       </div>
     </>
