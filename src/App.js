@@ -1,12 +1,13 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
 import Login from "./components/login/login";
 import Signup from "./components/signUp/signUp";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import PrivateRouter from "./components/PrivateRouter/PrivateRouter";
 import PropertyView from "./components/PropertyView/PropertyView";
 import BasicInfo from "./BasicInfo";
 import PropertyDetail from "./PropertyDetail";
 import GeneralInfo from "./GeneralInfo";
 import LocationInfo from "./LocationInfo";
-import { useState } from "react";
 function App() {
   const [formData, setFormData] = useState({
     propertyType: "",
@@ -50,19 +51,40 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/sign-up" element={<Signup />} />
-        <Route path="/basic-info" element={<BasicInfo
-          formData={formData} setFormData={setFormData}
-        />} />
-        <Route path="/property-detail" element={<PropertyDetail
-          formData={formData} setFormData={setFormData}
-        />} />
-        <Route path="/general-info" element={<GeneralInfo
-          formData={formData} setFormData={setFormData}
-        />} />
-        <Route path="/location-info" element={<LocationInfo
-          formData={formData} setFormData={setFormData}
-        />} />
-        <Route path="/home-page" element={<PropertyView />} />
+        <Route path="/basic-info" element={
+          <PrivateRouter>
+            <BasicInfo
+              formData={formData} setFormData={setFormData}
+            />
+          </PrivateRouter>
+        } />
+        <Route path="/property-detail" element={
+          <PrivateRouter>
+            <PropertyDetail
+              formData={formData} setFormData={setFormData}
+            />
+          </PrivateRouter>
+        } />
+        <Route path="/general-info" element={
+          <PrivateRouter>
+            <GeneralInfo
+              formData={formData} setFormData={setFormData}
+            />
+          </PrivateRouter>
+
+        } />
+        <Route path="/location-info" element={
+          <PrivateRouter>
+            <LocationInfo
+              formData={formData} setFormData={setFormData}
+            />
+          </PrivateRouter>
+        } />
+        <Route path="/home-page" element={
+          <PrivateRouter>
+            <PropertyView />
+          </PrivateRouter>
+        } />
       </Routes>
     </BrowserRouter>
   );

@@ -24,12 +24,13 @@ const Login = () => {
         localStorage.setItem('userId', DATA.email)
         axios.post('http://localhost:8080/user/login', DATA)
             .then(function (response) {
-                console.log(response.data);
-                alert(response.data.message);
+                console.log(response.data.message);
                 if (response.data.message == "success") {
                     localStorage.setItem('token', response.data.token)
-                    console.log("local", localStorage)
                     navigate('/home-page')
+                }
+                else {
+                    alert(response.data.message)
                 }
             })
             .catch(function (error) {

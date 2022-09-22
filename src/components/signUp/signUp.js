@@ -13,13 +13,13 @@ const Signup = () => {
             email: email,
             password: password
         }
-        if (!email.split("@").length > 1) {
+        if (!DATA.email.split("@").length > 1) {
             alert("Email format is incorrect");
         }
-        else if (password.length < 5) {
+        else if (DATA.password.length < 5) {
             alert("Please give a password of atleast 5 characters")
         }
-        else if (password !== confirmPassword) {
+        else if (DATA.password !== confirmPassword) {
             alert("Your Password and Confirm password doesn't match")
         }
         else {

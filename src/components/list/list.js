@@ -7,12 +7,6 @@ const PropertyList = () => {
   const toggle = () => {
     setbutton(!button)
   }
-  // const btn = document.getElementById('btn');
-
-  // // ✅ Change button text on click
-  // btn.addEventListener('click', function handleClick() {
-  //   btn.textContent = 'Sold';
-  // });
   useEffect(() => {
     axios.get('http://localhost:8080/asset/', {
       headers: {
