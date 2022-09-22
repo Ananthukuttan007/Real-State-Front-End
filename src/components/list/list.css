@@ -88,3 +88,26 @@
 .btncolor {
   color: #2289ff;
 }
+#btn{
+  background-color: #F5FAF5;
+  color: #416899;
+  width: 70px;
+  border-radius: 10px;
+}
+.image{
+  background: #C3C3C3;
+  font-size: 20px;
+  margin-left: 30px;
+}
+.tablehead.data{
+  padding-left: 90px;
+}
+.eye{
+  color: #C3C3C3;
+  font-size: 20px;
+}
+.pen{
+  color: #C3C3C3;
+  margin-left: 10px;
+  font-size: 20px;
+}
