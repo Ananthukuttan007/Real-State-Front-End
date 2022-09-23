@@ -42,7 +42,8 @@ const Login = () => {
         <>
             <div>
                 <div className="login-container">
-                    <h1>Logo</h1>
+                    <img src="images/hotproperty.png" alt="Logo"
+                        style={{ width: '250px' }} />
                     <p>Enter your credentials to access your network</p>
                     <form action="" method="POST">
                         <input

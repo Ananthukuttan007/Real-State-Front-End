@@ -13,6 +13,7 @@
   line-height: 25px;
   color: #b4b4c6;
 }
+
 .userid:hover {
   font-family: "Source Sans Pro";
   font-style: normal;
@@ -31,10 +32,12 @@
 
 .dropdown-content {
   display: none;
+  padding-top: 7px;
+  height: 40px;
+  text-align: end;
   position: sticky;
-  background-color: #f5f5f5;
+  background-color: transparent;
   /* min-width: 100px; */
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   /* padding: 12px 16px; */
   z-index: 1;
 }

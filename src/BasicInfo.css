@@ -5,6 +5,10 @@
     font-size: 15px;
 }
 
+.formBox label {
+    display: block;
+}
+
 .container {
     display: flex;
     height: 120vh;

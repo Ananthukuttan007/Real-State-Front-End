@@ -137,7 +137,15 @@ function GeneralInfo({ formData, setFormData }) {
                                 <button className="Previous" onClick={() => navigate('/property-detail')}>
                                     Previous
                                 </button>
-                                <button className=" save" onClick={() => navigate('/location-info')}>
+                                <button className=" save" onClick={(e) => {
+                                    e.preventDefault();
+                                    if (formData.mobile == "") {
+                                        alert("Mobile is a mandatory field")
+                                    }
+                                    else {
+                                        navigate('/location-info')
+                                    }
+                                }}>
                                     Save &#38; continue
                                 </button>
                             </div>

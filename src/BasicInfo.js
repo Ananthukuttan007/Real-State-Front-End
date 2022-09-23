@@ -2,9 +2,9 @@ import './BasicInfo.css'
 import SideNavBar from './components/sidenavbar/SideNavBar'
 import Header from './components/headerpage/Header'
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 function BasicInfo({ formData, setFormData }) {
     const navigate = useNavigate()
-    const token = localStorage.getItem("token");
     return (
         <>
             <div className="container">
@@ -137,12 +137,60 @@ function BasicInfo({ formData, setFormData }) {
                             </div>
 
                             <div className="buttonBox">
-                                <button className="cancel" onClick={() => navigate('/home-page')}>
+                                <button className="cancel" onClick={() => {
+                                    navigate('/home-page')
+                                    setFormData({
+                                        propertyType: "",
+                                        negotable: "",
+                                        price: '',
+                                        ownership: "",
+                                        propertyAge: "",
+                                        propertyApproved: "",
+                                        propertyDescription: "",
+                                        bankLoan: "",
+                                        length: '',
+                                        breath: '',
+                                        totalArea: '',
+                                        areaUnit: "",
+                                        noOfBHK: '',
+                                        noOfFloor: '',
+                                        attached: "",
+                                        western: "",
+                                        furnished: "",
+                                        carParking: "",
+                                        lift: "",
+                                        electricity: "",
+                                        facing: "",
+                                        name: "",
+                                        mobile: '',
+                                        postedBy: "",
+                                        saleType: "",
+                                        featuredPackage: "",
+                                        ppdPackage: "",
+                                        email: "",
+                                        city: "",
+                                        area: "",
+                                        pincode: '',
+                                        address: "",
+                                        landmark: "",
+                                        latitude: "",
+                                        longitude: ""
+                                    })
+                                }
+
+                                }>
                                     Cancel
                                 </button>
                                 <button className="save"
-                                    onClick={() => {
-                                        navigate('/property-detail')
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        if (formData.propertyType === "") {
+                                            alert("PropertyType is a Mandatory Field")
+                                            return false;
+                                        }
+                                        else {
+                                            navigate('/property-detail')
+                                        }
                                     }}
                                 >
                                     Save &#38; continue

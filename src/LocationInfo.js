@@ -17,6 +17,43 @@ function LocationInfo({ formData, setFormData }) {
             .then(function (response) {
                 console.log(response.data);
                 alert(response.data.message);
+                setFormData({
+                    propertyType: "",
+                    negotable: "",
+                    price: '',
+                    ownership: "",
+                    propertyAge: "",
+                    propertyApproved: "",
+                    propertyDescription: "",
+                    bankLoan: "",
+                    length: '',
+                    breath: '',
+                    totalArea: '',
+                    areaUnit: "",
+                    noOfBHK: '',
+                    noOfFloor: '',
+                    attached: "",
+                    western: "",
+                    furnished: "",
+                    carParking: "",
+                    lift: "",
+                    electricity: "",
+                    facing: "",
+                    name: "",
+                    mobile: '',
+                    postedBy: "",
+                    saleType: "",
+                    featuredPackage: "",
+                    ppdPackage: "",
+                    email: "",
+                    city: "",
+                    area: "",
+                    pincode: '',
+                    address: "",
+                    landmark: "",
+                    latitude: "",
+                    longitude: ""
+                })
                 if (response.data.message === "success") {
                     navigate('/home-page')
                 }
@@ -118,7 +155,7 @@ function LocationInfo({ formData, setFormData }) {
                                     value={formData.city}
                                 />
                                 <label for='Pincode'>Pincode</label>
-                                <input type="text" placeholder='Pincode'
+                                <input type="number" placeholder='Pincode'
                                     onChange={(e) => {
                                         setFormData({ ...formData, pincode: e.target.value });
                                     }}
@@ -141,7 +178,10 @@ function LocationInfo({ formData, setFormData }) {
                             </div>
 
                             <div className="buttonBox">
-                                <button className="Previous" onClick={() => navigate('/general-info')}>
+                                <button className="Previous" onClick={(e) => {
+                                    e.preventDefault();
+                                    navigate('/general-info')
+                                }}>
                                     Previous
                                 </button>
                                 <button className="Add"

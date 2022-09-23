@@ -222,6 +222,10 @@ nav {
     color: #7D7D7D;
 }
 
+.formBox1 label {
+    display: block;
+}
+
 select {
     height: 40px;
     width: 320px;

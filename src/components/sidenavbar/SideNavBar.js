@@ -9,7 +9,8 @@ const SideNavBar = () => {
     <>
       <div className="sidebarconatiner">
         <div className="logooption">
-          <h1>Logo</h1>
+          <img src="images/hotproperty.png" alt="Logo"
+            style={{ width: '200px' }} />
         </div>
 
         <div className="sidesubcontainer">

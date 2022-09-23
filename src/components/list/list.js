@@ -1,7 +1,7 @@
 import "./list.css";
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-const PropertyList = () => {
+const PropertyList = ({ searchItem }) => {
   const [state, setState] = useState([]);
 
   const [buttonValue, setButtonValue] = useState(false)
@@ -9,18 +9,21 @@ const PropertyList = () => {
     setButtonValue(!buttonValue)
   }
   useEffect(() => {
-    axios.get('http://localhost:8080/asset/', {
-      headers: {
-        Authorization: localStorage.getItem('token')
-      }
-    })
-      .then(function (response) {
-        setState(response.data.reverse());
-        console.log(response.data.message);
+    {
+      axios.get('http://localhost:8080/asset/', {
+        headers: {
+          Authorization: localStorage.getItem('token')
+        }
       })
-      .catch(function (error) {
-        console.log(error);
-      });
+        .then(async function (response) {
+          setState(response.data.reverse());
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+
+
   }, [])
   return (
 
@@ -42,8 +45,18 @@ const PropertyList = () => {
             </tr>
           </thead>
           <div className="propertycontainer">
-            {state.map(user => {
-              console.log(user)
+
+
+            {state.filter((value) => {
+              if (searchItem === "") {
+                console.log(value.PPDId);
+                return value
+              }
+              else if (value.PPDId.split("D")[1].includes(searchItem)) {
+                console.log(value)
+                return value
+              }
+            }).map(user => {
               return (
                 <>
                   <div className="property">
@@ -52,7 +65,7 @@ const PropertyList = () => {
                       <td className="image"><i class="fa-sharp fa-solid fa-images"></i></td>
                       <td className="thtext data">{user.propertyType}</td>
                       <td className="thtext data thmobile">{user.mobile}</td>
-                      <td className="thtext data">{user.area}</td>
+                      <td className="thtext data">{user.totalArea}</td>
                       <td className="thtext data">{user.Views}</td>
                       <td className="thtext data">{<button id="btn" onClick={toggle}>{buttonValue ? 'sold' : 'Unsold'}</button>}</td>
                       <td className="thtext data">{user.DaysLeft}</td>

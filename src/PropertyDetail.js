@@ -67,8 +67,8 @@ function PropertyDetail({ formData, setFormData }) {
 
                                     <input type="number" id='total area' placeholder='Example: 7500'
 
-                                        onChange={(e) => {
-                                            setFormData({ ...formData, totalArea: e.target.value });
+                                        onClick={() => {
+                                            setFormData({ ...formData, totalArea: (formData.length * formData.breath) });
                                         }}
                                         value={formData.totalArea}
                                     />
@@ -162,7 +162,7 @@ function PropertyDetail({ formData, setFormData }) {
                                     </select>
                                     <label for='No of Floors'>No of Floors</label>
                                     <select name="No of Floors" id='No of Floors'
-                                        onChange={(e) => {
+                                        onClick={(e) => {
                                             setFormData({ ...formData, noOfFloor: e.target.value });
                                         }}
                                         value={formData.noOfFloor}
@@ -210,7 +210,22 @@ function PropertyDetail({ formData, setFormData }) {
                                     <button className="Previous" onClick={() => navigate('/basic-info')}>
                                         Previous
                                     </button>
-                                    <button className=" save" onClick={() => navigate('/general-info')}>
+                                    <button className=" save" onClick={(e) => {
+                                        e.preventDefault();
+                                        if (formData.length === "") {
+                                            alert("Length is a mandatory field")
+                                        }
+                                        else if (formData.breath === "") {
+                                            alert("Breadth is a mandatory field")
+                                        }
+                                        else if (formData.totalArea === "") {
+                                            alert("Click on total area section to get automatically calculated area")
+                                        }
+                                        else {
+                                            navigate('/general-info')
+                                        }
+
+                                    }}>
                                         Save &#38; continue
                                     </button>
                                 </div>
