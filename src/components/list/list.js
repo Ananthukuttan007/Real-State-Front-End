@@ -43,22 +43,22 @@ const PropertyList = ({ searchItem }) => {
 
     <>
 
-      <div className="propertycontainer">
-        <table>
+      <div className="propertycontaine">
+        <table className="fixed_header">
           <thead>
-            <tr className="tablehead">
-              <th className="thtext ppdidhead">PPD Id</th>
+            <tr>
+              <th>PPD Id</th>
               <th className="thtext">Image</th>
-              <th className="thtext">Property</th>
-              <th className="thtext thmobile">Contact</th>
-              <th className="thtext">Area</th>
-              <th className="thtext">Views</th>
-              <th className="thtext">Status</th>
-              <th className="thtext thdayleft">Days Left</th>
-              <th className="thtext actiontxt">Action</th>
+              <th className="propertlist">Property</th>
+              <th className="contact">Contact</th>
+              <th className="contact">Area</th>
+              <th>Views</th>
+              <th>Status</th>
+              <th className="daysleft">DaysLeft</th>
+              <th>Action</th>
             </tr>
           </thead>
-          <div className="propertycontainer">
+          <div>
 
 
             {state.filter((value) => {
@@ -71,18 +71,18 @@ const PropertyList = ({ searchItem }) => {
             }).map(user => {
               return (
                 <>
-                  <div className="property">
-                    <tr className="tablehead data">
-                      <td className="thtext data">{user.PPDId}</td>
+                  <div>
+                    <tr className="containerr">
+                      <td className="data">{user.PPDId}</td>
                       <td className="image"><i class="fa-sharp fa-solid fa-images"></i></td>
-                      <td className="thtext data">{user.propertyType}</td>
-                      <td className="thtext data thmobile">{user.mobile}</td>
-                      <td className="thtext data">{user.totalArea}</td>
-                      <td className="thtext data">{user.Views}</td>
-                      <td className="thtext data"><button id="btn" onClick={toggleAndSave} value={[user._id, user.Sold]}>{user.Sold}</button></td>
-                      <td className="thtext data">{user.DaysLeft}</td>
-                      <td className="eye"><i class="fa-solid fa-eye"></i></td>
-                      <td className="pen"><i class="fa-solid fa-pen"></i></td>
+                      <td className="propertyls" >{user.propertyType}</td>
+                      <td className="mobile">{user.mobile}</td>
+                      <td className="area">{user.totalArea}</td>
+                      <td>{user.Views}</td>
+                      <td><button id="btn" onClick={toggleAndSave} value={[user._id, user.Sold]}>{user.Sold}</button></td>
+                      <td className="days">{user.DaysLeft}</td>
+                      <td> <i class="fa-solid fa-eye"></i> <i class="fa-solid fa-pen"> </i></td>
+     
                     </tr>
                   </div>
 

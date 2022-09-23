@@ -2,11 +2,17 @@ import "../signUp/signUp.css"
 import { useNavigate } from 'react-router-dom';
 import { useState } from "react"
 import axios from 'axios'
+import usePasswordToggle from "../login/usePasswordToggle"
+import { library, Library } from "@fortawesome/fontawesome-svg-core"
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"
+library.add(faEye, faEyeSlash)
+
 const Signup = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [passwordInputType, ToggleIcon] = usePasswordToggle()
     const signUp = (e) => {
         e.preventDefault();
         let DATA = {
@@ -55,16 +61,17 @@ const Signup = () => {
                             }}
                         /> <br></br>
                         <input
-                            type="password"
+                            type={passwordInputType}
                             required name="password"
                             placeholder="&nbsp;&nbsp;Password"
                             onChange={(e) => {
                                 setPassword(e.target.value)
                             }}
-                        /> <br></br>
-
+                        /> 
+                        <span className="password-toggle-icon">{ToggleIcon}</span>
+                              <br></br>  
                         <input
-                            type="password"
+                            type={passwordInputType}
                             required
                             name="confirm-password"
                             placeholder="&nbsp;&nbsp;Confirm Password"
@@ -72,7 +79,9 @@ const Signup = () => {
                                 setConfirmPassword(e.target.value)
                             }}
 
-                        /> <br></br>
+                        />
+                        <span className="password-toggle-icon">{ToggleIcon}</span>
+                         <br></br>
                         <button type="submit" className="signUpBtn"
                             onClick={signUp}>
                             Sign Up
