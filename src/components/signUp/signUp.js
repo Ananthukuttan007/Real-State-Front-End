@@ -29,7 +29,7 @@ const Signup = () => {
             alert("Your Password and Confirm password doesn't match")
         }
         else {
-            axios.post('http://localhost:8080/user/register', DATA)
+            axios.post('https://hotproperty.herokuapp.com/user/register', DATA)
                 .then(function (response) {
                     console.log(response.data);
                     alert(response.data.message);

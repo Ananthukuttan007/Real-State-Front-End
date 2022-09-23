@@ -22,7 +22,7 @@ const Login = () => {
             password: password
         }
         localStorage.setItem('userId', DATA.email)
-        axios.post('http://localhost:8080/user/login', DATA)
+        axios.post('https://hotproperty.herokuapp.com/user/login', DATA)
             .then(function (response) {
                 console.log(response.data.message);
                 if (response.data.message == "success") {

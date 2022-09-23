@@ -8,7 +8,7 @@ import axios from 'axios'
 function LocationInfo({ formData, setFormData }) {
     const addProperty = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:8080/asset/', formData,
+        axios.post('https://hotproperty.herokuapp.com/asset/', formData,
             {
                 headers: {
                     Authorization: localStorage.getItem('token')

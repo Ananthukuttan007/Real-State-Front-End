@@ -5,11 +5,16 @@ const PropertyList = ({ searchItem }) => {
   const [state, setState] = useState([]);
   const toggleAndSave = (e) => {
     let buttonArray = e.target.value.split(",");
-    let soldUnsold = "Sold";
-    if (buttonArray[1] === "Sold") {
-      soldUnsold = "Unsold"
+    let updateContent = {
+      DaysLeft: 0,
+      Sold: "Sold"
     }
-    axios.put(`http://localhost:8080/asset/${buttonArray[0]}`, { Sold: soldUnsold }, {
+    if (buttonArray[1] === "Sold") {
+      updateContent.Sold = "Unsold"
+      updateContent.DaysLeft = parseInt(Math.random() * 10)
+    }
+
+    axios.put(`https://hotproperty.herokuapp.com/asset/${buttonArray[0]}`, updateContent, {
       headers: {
         Authorization: localStorage.getItem('token')
       }
@@ -24,7 +29,7 @@ const PropertyList = ({ searchItem }) => {
   }
   useEffect(() => {
     {
-      axios.get('http://localhost:8080/asset/', {
+      axios.get('https://hotproperty.herokuapp.com/asset/', {
         headers: {
           Authorization: localStorage.getItem('token')
         }
