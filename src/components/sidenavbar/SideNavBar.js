@@ -15,10 +15,10 @@ const SideNavBar = () => {
 
         <div className="sidesubcontainer">
           <div className="sideoption property">
-            <div>
+            <div className="home">
               <RiHome3Line />
             </div>
-            <div className="navvalue">Property</div>
+            <div className="propert">Property</div>
           </div>
 
           <div className="sideoption gray">

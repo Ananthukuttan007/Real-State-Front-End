@@ -66,7 +66,7 @@ const Login = () => {
                         />
                         <span className="password-toggle-icon">{ToggleIcon}</span>
                         <br></br>
-                        <button type="submit" onClick={login}>
+                        <button type="submit" className="" onClick={login} >
                             Sign In
                         </button>  <br></br>
                     </form>
