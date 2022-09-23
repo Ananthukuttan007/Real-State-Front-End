@@ -11,7 +11,7 @@
 
 .container {
     display: flex;
-    height: 120vh;
+    height: 100vh;
     background-color: #fafbfc;
 }
 
@@ -200,6 +200,7 @@ nav {
 }
 
 .formBox {
+    overflow: scroll;
     background: #FFFFFF;
     box-sizing: border-box;
     box-shadow: 10px 14px 70px rgba(0, 0, 0, 0.03);
@@ -320,4 +321,22 @@ select:hover {
 
 .buttonBox button:nth-child(2):hover {
     border: 2px solid rgb(3, 29, 53);
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

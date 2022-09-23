@@ -26,20 +26,20 @@
 .dropdown {
   position: relative;
   display: inline-block;
-   font-size: 20px; 
+  font-size: 20px;
   color: #b4b4c6;
 }
 
 .dropdown-content {
   display: none;
+  box-sizing: border-box;
   padding-top: 7px;
-  height: 50px;
+  padding-left: 130px;
+  height: 10px;
   text-align: end;
   position: sticky;
   width: 100px;
   background-color: transparent;
-   /* min-width: 100px; 
-   padding: 12px 16px;  */
   z-index: 1;
 }
 

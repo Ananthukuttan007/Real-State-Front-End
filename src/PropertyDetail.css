@@ -7,7 +7,7 @@
 
 .container {
     display: flex;
-    height: 175vh;
+    height: 130vh;
     background-color: #fafbfc;
 }
 
@@ -199,30 +199,8 @@ nav {
     color: #AAAAAA;
 }
 
-.formBox1 {
-    background: #FFFFFF;
-    box-sizing: border-box;
-    box-shadow: 10px 14px 70px rgba(0, 0, 0, 0.03);
-    position: absolute;
-    left: 24.69%;
-    right: 5.62%;
-    top: 45.31%;
-    height: 125vh;
-    width: 68vw;
-    padding-left: 100px;
-    padding-top: 30px;
-    border-radius: 20px;
 
-    font-family: 'Source Sans Pro';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 25px;
-
-    color: #7D7D7D;
-}
-
-.formBox1 label {
+.formBox label {
     display: block;
 }
 

@@ -43,7 +43,7 @@ const PropertyList = ({ searchItem }) => {
 
     <>
 
-      <div className="propertycontaine">
+      <div className="propertycontainer">
         <table className="fixed_header">
           <thead>
             <tr>
@@ -51,14 +51,14 @@ const PropertyList = ({ searchItem }) => {
               <th className="thtext">Image</th>
               <th className="propertlist">Property</th>
               <th className="contact">Contact</th>
-              <th className="contact">Area</th>
+              <th className="areahead">Area</th>
               <th>Views</th>
               <th>Status</th>
               <th className="daysleft">DaysLeft</th>
               <th>Action</th>
             </tr>
           </thead>
-          <div>
+          <div className="listBox">
 
 
             {state.filter((value) => {
@@ -81,8 +81,8 @@ const PropertyList = ({ searchItem }) => {
                       <td>{user.Views}</td>
                       <td><button id="btn" onClick={toggleAndSave} value={[user._id, user.Sold]}>{user.Sold}</button></td>
                       <td className="days">{user.DaysLeft}</td>
-                      <td> <i class="fa-solid fa-eye"></i> <i class="fa-solid fa-pen"> </i></td>
-     
+                      <td className="action"> <i class="fa-solid fa-eye"></i> <i class="fa-solid fa-pen"> </i></td>
+
                     </tr>
                   </div>
 

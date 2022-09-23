@@ -53,7 +53,7 @@ function PropertyDetail({ formData, setFormData }) {
                             </div>
 
                         </div>
-                        <div className="formBox1">
+                        <div className="formBox">
                             <form action="">
                                 <div className="leftFormBox">
                                     <label for="Length">Length</label>
