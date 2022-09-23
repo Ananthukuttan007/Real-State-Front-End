@@ -59,7 +59,6 @@ function LocationInfo({ formData, setFormData }) {
                 }
             })
             .catch(function (error) {
-                console.log(error);
                 alert('error')
             });
     }

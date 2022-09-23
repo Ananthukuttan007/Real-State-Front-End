@@ -3,10 +3,24 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 const PropertyList = ({ searchItem }) => {
   const [state, setState] = useState([]);
-
-  const [buttonValue, setButtonValue] = useState(false)
-  const toggle = () => {
-    setButtonValue(!buttonValue)
+  const toggleAndSave = (e) => {
+    let buttonArray = e.target.value.split(",");
+    let soldUnsold = "Sold";
+    if (buttonArray[1] === "Sold") {
+      soldUnsold = "Unsold"
+    }
+    axios.put(`http://localhost:8080/asset/${buttonArray[0]}`, { Sold: soldUnsold }, {
+      headers: {
+        Authorization: localStorage.getItem('token')
+      }
+    })
+      .then(async function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    window.location.reload(false)
   }
   useEffect(() => {
     {
@@ -49,11 +63,9 @@ const PropertyList = ({ searchItem }) => {
 
             {state.filter((value) => {
               if (searchItem === "") {
-                console.log(value.PPDId);
                 return value
               }
               else if (value.PPDId.split("D")[1].includes(searchItem)) {
-                console.log(value)
                 return value
               }
             }).map(user => {
@@ -67,7 +79,7 @@ const PropertyList = ({ searchItem }) => {
                       <td className="thtext data thmobile">{user.mobile}</td>
                       <td className="thtext data">{user.totalArea}</td>
                       <td className="thtext data">{user.Views}</td>
-                      <td className="thtext data">{<button id="btn" onClick={toggle}>{buttonValue ? 'sold' : 'Unsold'}</button>}</td>
+                      <td className="thtext data"><button id="btn" onClick={toggleAndSave} value={[user._id, user.Sold]}>{user.Sold}</button></td>
                       <td className="thtext data">{user.DaysLeft}</td>
                       <td className="eye"><i class="fa-solid fa-eye"></i></td>
                       <td className="pen"><i class="fa-solid fa-pen"></i></td>

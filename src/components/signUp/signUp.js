@@ -41,7 +41,8 @@ const Signup = () => {
         <>
             <div>
                 <div className="signUp-container">
-                    <h1>Logo</h1>
+                    <img src="images/hotproperty.png" alt="Logo"
+                        style={{ width: '250px' }} />
                     <p className="para">Create New Account</p>
                     <form action="">
                         <input

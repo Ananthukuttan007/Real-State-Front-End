@@ -2,7 +2,6 @@ import './BasicInfo.css'
 import SideNavBar from './components/sidenavbar/SideNavBar'
 import Header from './components/headerpage/Header'
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
 function BasicInfo({ formData, setFormData }) {
     const navigate = useNavigate()
     return (
