@@ -1,7 +1,12 @@
 import "./list.css";
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
+
+
+
 const PropertyList = ({ searchItem }) => {
+  const navigate = useNavigate()
   const [state, setState] = useState([]);
   const toggleAndSave = (e) => {
     let buttonArray = e.target.value.split(",");
@@ -25,7 +30,8 @@ const PropertyList = ({ searchItem }) => {
       .catch(function (error) {
         console.log(error);
       });
-    window.location.reload(false)
+    alert('status changed successfully')
+    navigate('/home-page')
   }
   useEffect(() => {
     {
@@ -43,7 +49,7 @@ const PropertyList = ({ searchItem }) => {
     }
 
 
-  }, [])
+  }, [state])
   return (
 
     <>
